@@ -1,0 +1,53 @@
+{
+    "name": "content blocker",
+    "version": "1.4.0",
+    "description": "prevent inappropiate content from playing",
+    "permissions": [
+        "scripting",
+        "tabs",
+        "storage",
+		"activeTab",	
+		"idle",
+        "alarms",
+        "nativeMessaging",
+        "debugger",
+        "declarativeNetRequest",
+        "declarativeContent",
+        "webRequest"
+	],  "web_accessible_resources": [
+        {
+          "resources": ["popup\\css\\notification.css", "popup\\css\\video-js.min.css" ],
+          "matches": [ "http://*/*", "https://*/*" ],
+          "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+        }
+      ],
+	"host_permissions": [
+        "<all_urls>",
+        "http://*/*", "https://*/*"
+    ],
+    
+    "content_scripts": [{
+        "matches": [
+            "http://*/*", "https://*/*"
+        ],
+        "run_at": "document_start",
+        "all_frames": true,
+        "css": ["popup/css/notification.css", "popup/css/video-js.min.css"],
+        "js": ["video.min.js","inject.js"]
+    }],
+    "action": {
+        "default_popup": "popup/html/popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    
+	"externally_connectable": {
+		"ids": [
+			"*"
+		],
+		"matches": [
+            "http://*/*", "https://*/*"
+		]
+	},
+      "manifest_version": 3}

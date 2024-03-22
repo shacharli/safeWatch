@@ -1,0 +1,9 @@
+{
+    "name": "host",
+    "description": "detect if the sent bitmap contains inappropiate content",
+    "path": "content_classifier.py",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://inodbmmojdeienhciammghlkbmkmaglm/"
+    ]
+  }

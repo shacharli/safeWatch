@@ -1,0 +1,9 @@
+{
+    "name": "get_frames",
+    "description": "get frames for a given url",
+    "path": "get_frames.js",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://nloacdgkbaccabogoceeahmilokmpioe/"
+    ]
+  }
